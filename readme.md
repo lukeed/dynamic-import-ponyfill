@@ -33,7 +33,7 @@ function supported() {
 $ npm install --save dynamic-import-ponyfill
 ```
 
-Then with a module bundler like [rollup](http://rollupjs.org/) or [webpack](https://webpack.js.org/), use as you would anything else:
+Then with a module bundler like [rollup](https://rollupjs.org/) or [webpack](https://webpack.js.org/), use as you would anything else:
 
 ```js
 // using ES6 modules
@@ -46,10 +46,10 @@ const dip = require('dynamic-import-ponyfill');
 The [UMD](https://github.com/umdjs/umd) build is also available on [unpkg](https://unpkg.com/):
 
 ```html
-<script src="//unpkg.com/dynamic-import-ponyfill/dist/import.umd.js"></script>
+<script src="https://unpkg.com/dynamic-import-ponyfill/dist/import.min.js"></script>
 ```
 
-This is exposes the function as `window.import`~!
+This exposes the function as `window.import`!
 
 > **CAUTION:** Browsers that recognize `import` and `import()` will only respond to `window.import` explicitly!
 
