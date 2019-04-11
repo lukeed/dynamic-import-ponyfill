@@ -14,7 +14,7 @@ In order to leverage the benefits of ESM today, a developer must choose between:
 * building and/or distributing multiple versions of their application
 * abstaining from shipping ESM syntax at all :cry:
 
-Now, `dimport` allows the developer to ship ESM **today** to all browsers without comproimse.<br>
+Now, `dimport` allows the developer to ship ESM **today** to all browsers without compromise.<br>
 Better yet, the development and distribution processes are simplified, if not unchanged.
 
 PS: Check out the [`/examples`](/examples) directory~!
@@ -34,21 +34,21 @@ While `dimport` may allow older browsers to parse and interpret the ESM format, 
 
 ## Modes
 
-There are three "versions" of `dimport`, each of which utilize different APIs and approaches to yield full ESM compatability.
+There are three "versions" of `dimport`, each of which utilize different APIs and approaches to yield full ESM compatibility.
 
 Please note that **all modes** check for native `import()` support first and foremost.<br>
 This means that `dimport` won't do anything if it doesn't have to.
 
 #### "module"
 > **Size (gzip):** 675 bytes<br>
-> **Availablility:** [UMD](https://unpkg.com/dimport), [CommonJS](https://unpkg.com/dimport/dist/index.js), [ES Module](https://unpkg.com/dimport?module)<br>
+> **Availability:** [UMD](https://unpkg.com/dimport), [CommonJS](https://unpkg.com/dimport/dist/index.js), [ES Module](https://unpkg.com/dimport?module)<br>
 > **Requires:** `script[type=module]`, `fetch`, `Promise`, `URL`
 
 Since _static_ `import` statements are supported, this mode parses all _dynamic_ `import()`s and creates temporary `script[type=module]` tags pointing to the resource's full, canonical URL. Once the temporary script loads, the originating Promise is resolved, returning the contents.
 
 #### "nomodule"
 > **Size (gzip):** 918 bytes<br>
-> **Availablility:** [UMD](https://unpkg.com/dimport/nomodule), [ES Module](https://unpkg.com/dimport/nomodule/index.mjs)<br>
+> **Availability:** [UMD](https://unpkg.com/dimport/nomodule), [ES Module](https://unpkg.com/dimport/nomodule/index.mjs)<br>
 > **Requires:** `fetch`, `Promise`, `URL`
 
 All `import`, `export`, and `import()` statements are dynamically rewritten to CommonJS modules so that their contents/exports are easily returned.
@@ -57,7 +57,7 @@ Any `import` statements are parsed early, ensuring full canonical URLs, and then
 
 #### "legacy"
 > **Size (gzip):** 1143 bytes<br>
-> **Availablility:** [UMD](https://unpkg.com/dimport/legacy), [ES Module](https://unpkg.com/dimport/legacy/index.mjs)<br>
+> **Availability:** [UMD](https://unpkg.com/dimport/legacy), [ES Module](https://unpkg.com/dimport/legacy/index.mjs)<br>
 > **Requires:** `Promise`, `XMLHttpRequest`
 
 Takes the same approach as ["nomodule"](#nomodule), but inserts alternatives to `fetch` and `URL`.
@@ -86,7 +86,7 @@ This means the two scripts can live side-by-side without loading your applicatio
 Finally, the _same_ application file (`bundle.js`) can be used, despite the `module`-vs-`nomodule` choice.
 
 You will also notice that the scripts have a `data-main=""` attribute.<br>
-This the path to _your application_ or _your ESM-containing file_ you wish to load.
+This is the path to _your application_ or _your ESM-containing file_ you wish to load.
 
 Once `dimport` has loaded, it circles back and see that its `<script/>` caller also wants it to load a file.<br>
 Alternatively, `dimport` can load an inline script from its caller!
