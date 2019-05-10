@@ -73,7 +73,7 @@ function dimport(url) {
 			? Promise.resolve(CACHE[url])
 			: new Promise(function (res, rej, xhr) {
 				(xhr = new XMLHttpRequest).onerror = rej;
-				xhr.open('GET', url, true);
+				xhr.open('GET', url);
 				xhr.onload = function () {
 					(xhr.status >= 400)
 						? rej(new TypeError('Failed to fetch dynamically imported module: ' + url))
